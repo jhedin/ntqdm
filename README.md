@@ -1,7 +1,13 @@
 # ntqdm
+
 tqdm for node
 
 wrap an iterable in td.qm, and it will update the progress bar as it iterates
+
+install
+
+npm install ntqdm
+
 
 usage:
 
