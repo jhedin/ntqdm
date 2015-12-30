@@ -1,0 +1,27 @@
+{
+  "name": "ntqdm",
+  "version": "0.0.0",
+  "description": "tqdm for node",
+  "main": "src/index.js",
+  "scripts": {
+   "test": "mocha"
+  },
+  "devDependencies": {
+   "istanbul": "0.3.5",
+   "mocha": "2.0.0"
+ },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhedin/ntqdm.git"
+  },
+  "keywords": [
+    "tqdm",
+    "ntqdm"
+  ],
+  "author": "James Hedin <jhedin10@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhedin/ntqdm/issues"
+  },
+  "homepage": "https://github.com/jhedin/ntqdm"
+}
