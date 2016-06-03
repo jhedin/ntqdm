@@ -1,5 +1,5 @@
 var assert = require('assert');
-var td = require('../')();
+var tdqm = require('../')();
 
 describe('tqdm', function() {
   it('prints a progress bar, for long running for..of loops', function(done) {
@@ -10,7 +10,7 @@ describe('tqdm', function() {
 	}
 
 	var t = [1,2,3,4,5,6,7,8,9,10];
-	for(var i of td.qm(t)) {
+	for(var i of tdqm(t)) {
 		sleep(100);
 	}
 

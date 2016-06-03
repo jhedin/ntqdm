@@ -1,6 +1,6 @@
 {
   "name": "ntqdm",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "tqdm for node",
   "main": "src/index.js",
   "scripts": {
