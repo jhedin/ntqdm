@@ -30,7 +30,7 @@ function tqdm(){
 
 		out += "elapsed: " + _formatter(elapsed) + " ";
 		out += "left: " + _formatter(est) + ", ";
-		out += ips.toFixed(2) + " iters/s]\n";
+		out += ips.toFixed(2) + " iters/s]";
 
 		return out;
 	}
@@ -129,13 +129,17 @@ function tqdm(){
 				}
 				
 				lastn = n;
-				lastElapsed = elapsed;
+				lastElapsed = elapsed;		
+				process.stdout.clearLine();
+				process.stdout.cursorTo(0);
 				process.stdout.write(_render(n, params.total, elapsed));
 			}
 			if(n > params.total) {
 				break;
 			}
 		}
+
+		process.stdout.write("\n")
 	}
 }
 
