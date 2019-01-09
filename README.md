@@ -14,11 +14,9 @@ usage:
 ```javascript
 const tdqm = require(ntqdm);
 (async ()=>{
-	for(let d of tdqm(new Array(10))) {
-		await new Promise(res=>{
-			setTimeout(()=>{res()}, 1000)
-		});
-}
+    for(let d of tdqm(new Array(10))) {
+        await new Promise(res=>{setTimeout(()=>{res()}, 1000)});
+    }
 })() 
 
 ```
@@ -28,11 +26,9 @@ for infinite iterables, you need to specify a total number of iteations to compl
 
 ```javascript
 (async ()=>{
-	for(let d of tdqm(generator(), {total:50})) {
-		await new Promise(res=>{
-			setTimeout(()=>{res()}, 1000)
-		});
-}
+    for(let d of tdqm(generator(), {total:50})) {
+        await new Promise(res=>{setTimeout(()=>{res()}, 1000)});
+    }
 })() 
 ```
 
@@ -40,12 +36,10 @@ normally, tdqm updates the same line, and assumes nothing else is written to std
 
 ```javascript
 (async ()=>{
-	for(let d of tdqm(generator(), {total:50, logging:true})) {
-		await new Promise(res=>{
-			setTimeout(()=>{res()}, 1000)
-		});
-		console.log("foo");
-}
+    for(let d of tdqm(generator(), {total:50, logging:true})) {
+        await new Promise(res=>{setTimeout(()=>{res()}, 1000)});
+        console.log("foo");
+    }
 })() 
 ```
 
