@@ -1,10 +1,10 @@
 'use strict'
 
 function tqdm(){
-    
+
 	/**
 	 * renders progress to a string
-	 * @private 
+	 * @private
 	 * @param {Number} n - iterations completed
 	 * @param {Number} total - total iterations to do
 	 * @param {Number} elapsed - time taken so fa in ms
@@ -13,7 +13,7 @@ function tqdm(){
 	function _render(n, total, elapsed) {
 
 		var cent = n/total*100;
-		var est = (100 - (cent+0.000001))/(cent+0.0000001) * elapsed;
+		var est = Math.max((100 - (cent+0.000001))/(cent+0.0000001) * elapsed, 0);
 		var ips = n / ((elapsed+0.000001)/1000);
 		cent = Math.floor(cent);
 
@@ -38,7 +38,7 @@ function tqdm(){
 
 	/**
 	 * Formats a time in ms to HH:MM:SS, or MM:SS if the time is less than an hour
-	 * @private 
+	 * @private
 	 * @param {Number} msec
 	 * @return {string} out
 	 */
@@ -67,7 +67,7 @@ function tqdm(){
 
 		return out;
 	}
-		
+
 	/**
 	 * Adds a timed progress bar to iterables
 	 * @param {Iterable} iter
@@ -93,14 +93,14 @@ function tqdm(){
 				params[i] = def[i];
 			}
 		}
-		if(typeof par === 'object') {		
+		if(typeof par === 'object') {
 			for(let i in par) {
 				params[i] = par[i];
 			}
 		}
 		var start = Date.now();
 		var now = start;
-		var n = 0; 
+		var n = 0;
 		var lastn = 0;
 		var elapsed;
 		var lastElapsed  = 0;;
@@ -127,7 +127,7 @@ function tqdm(){
 				if(params.logging) {
 					process.stdout.write("\u001b[1F\u001b[2K");
 				}
-				
+
 				lastn = n;
 				lastElapsed = elapsed;
 				process.stdout.write(_render(n, params.total, elapsed));
