@@ -30,7 +30,7 @@ function tqdm(){
 
 		out += "elapsed: " + _formatter(elapsed) + " ";
 		out += "left: " + _formatter(est) + ", ";
-		out += ips.toFixed(2) + " iters/s]\n";
+		out += ips.toFixed(2) + " iters/s]";
 
 		return out;
 	}
@@ -125,17 +125,21 @@ function tqdm(){
 			elapsed = Date.now() - start;
 			if(n - lastn >= params.minIter && elapsed - lastElapsed >= params.minInterval) {
 				if(params.logging) {
-					process.stdout.write("\u001b[1F\u001b[2K");
+					process.stdout.write("\n");
 				}
 				
 				lastn = n;
-				lastElapsed = elapsed;
+				lastElapsed = elapsed;		
+				process.stdout.clearLine();
+				process.stdout.cursorTo(0);
 				process.stdout.write(_render(n, params.total, elapsed));
 			}
 			if(n > params.total) {
 				break;
 			}
 		}
+
+		process.stdout.write("\n")
 	}
 }
 
