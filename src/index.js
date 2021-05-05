@@ -124,7 +124,7 @@ function tqdm(){
 			n++;
 			elapsed = Date.now() - start;
 			if(n - lastn >= params.minIter && elapsed - lastElapsed >= params.minInterval) {
-				if(params.logging) {
+				if(!params.logging) {
 					process.stdout.write("\u001b[1F\u001b[2K");
 				}
 				
