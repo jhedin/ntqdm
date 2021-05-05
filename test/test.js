@@ -1,5 +1,5 @@
 var assert = require('assert');
-var tdqm = require('../')();
+var tdqm = require('../');
 
 describe('tqdm', function() {
   it('prints a progress bar, for long running for..of loops', function(done) {
